@@ -1,6 +1,8 @@
 BagKit
 ======
 
+a quick and dirty gui wrapper around bagit (Library of Congress Transfer Tools)
+
 Building
 --------
 
