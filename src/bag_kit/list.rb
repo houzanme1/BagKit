@@ -1,13 +1,19 @@
 class BagKit
   
   class List < javax.swing.table.AbstractTableModel
+    include Enumerable
+    
     def initialize(*list)
       @files = list
       super()
     end
     
+    def each(&block)
+      @files.each(&block)
+    end
+    
     def all
-      Array.new(@files)
+      to_a
     end
     
     def add(*list)

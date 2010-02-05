@@ -17,7 +17,7 @@ class BagKit
     end
     
     def action_bag(type, event)
-      self.task = files.all.map do |folder|
+      self.task = files.map do |folder|
         self.class.base_task + ['baginplace', Context.local_path(folder.absolute_path)]
       end
       execute

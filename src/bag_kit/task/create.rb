@@ -18,7 +18,7 @@ class BagKit
       return unless dialog.show_save_dialog(nil) == JFileChooser::APPROVE_OPTION
       
       bag_path = Context.local_path(dialog.selected_file.absolute_path)
-      bag_data = files.all.map do |file|
+      bag_data = files.map do |file|
         Context.local_path(file.absolute_path)
       end
       
