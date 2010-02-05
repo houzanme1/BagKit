@@ -15,6 +15,10 @@ require 'stream_grabber'
 require 'bag_kit'
 require 'bag_kit/list'
 require 'bag_kit/task'
+require 'bag_kit/task/create'
+require 'bag_kit/task/update'
+require 'bag_kit/task/in_place'
+require 'bag_kit/task/validate'
 
 javax.swing.UIManager.look_and_feel = javax.swing.UIManager.system_look_and_feel_class_name
 if Context.mac
