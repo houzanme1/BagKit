@@ -3,7 +3,10 @@ class BagKit
   class List < javax.swing.table.AbstractTableModel
     include Enumerable
     
+    attr_accessor :label
+    
     def initialize(*list)
+      @label = 'Files'
       @files = list
       super()
     end
@@ -35,20 +38,20 @@ class BagKit
     end
     
     def getColumnName(column)
-      case column
-      when 0 then 'Files'
+      if column == 0
+        @label
       end
     end
     
     def getValueAt(row, column)
-      case column
-      when 0 then @files[row].absolute_path
+      if column == 0
+        @files[row].absolute_path
       end
     end
     
     def getColumnClass(column)
-      case column
-      when 0 then java.lang.String
+      if column == 0
+        java.lang.String
       end
     end
   end

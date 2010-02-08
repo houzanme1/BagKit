@@ -78,6 +78,7 @@ class BagKit
     
     module ListLayout
       include_package 'javax.swing'
+      include_package 'javax.swing.border'
       include_package 'javax.swing.text'
       include_package 'java.awt'
       include Profligacy
@@ -86,6 +87,7 @@ class BagKit
       
       def initialize(t, e)
         @files = BagKit::List.new
+        @files.label = list_label
         @table = JTable.new(@files)
         @table.intercell_spacing = Dimension.new(4,0)
         @table.row_height = 24
@@ -134,6 +136,10 @@ class BagKit
       
       def text_dialog_title
         "Choose"
+      end
+      
+      def list_label
+        "Files"
       end
       
       def layout
