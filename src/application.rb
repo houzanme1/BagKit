@@ -20,9 +20,12 @@ require 'bag_kit/task/update'
 require 'bag_kit/task/in_place'
 require 'bag_kit/task/validate'
 
-javax.swing.UIManager.look_and_feel = javax.swing.UIManager.system_look_and_feel_class_name
 if Context.mac
+  $CLASSPATH << "/System/Library/Java"
   java.lang.System.set_property("apple.laf.useScreenMenuBar", "true")
+  javax.swing.UIManager.look_and_feel = Java::ch.randelshofer.quaqua.QuaquaManager.look_and_feel_class_name
+else
+  javax.swing.UIManager.look_and_feel = javax.swing.UIManager.system_look_and_feel_class_name
 end
 
 def handle_exception(exception, thread = nil)
