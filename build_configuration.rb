@@ -2,7 +2,7 @@ configuration do |c|
   c.project_name       = 'BagKit'
   c.main_ruby_file     = 'application'
   c.main_java_file     = 'org.rubyforge.rawr.Main'
-  c.target_jvm_version = 1.5
+  c.target_jvm_version = 1.6
   c.jvm_arguments      = '-Djava.library.path=' + File.join('lib', 'java', 'quaqua', 'jni')
   c.output_dir         = 'build'
   c.compile_ruby_files = true

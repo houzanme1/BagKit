@@ -10,7 +10,7 @@ class BagKit
     def initialize(*args)
       self.auto_close = false
       
-      @option1 = JComboBox.new ["", "0.93", "0.94", "0.95", "0.96"].to_java(:String)
+      @option1 = JComboBox.new ["0.96", "0.95", "0.94", "0.93"].to_java(:String)
       @option2 = JComboBox.new ["md5", "sha1", "sha256", "sha512"].to_java(:String)
       @option3 = JComboBox.new ["md5", "sha1", "sha256", "sha512"].to_java(:String)
       @option4 = JComboBox.new ["filesystem", "tar", "tar_gz", "tar_bz2", "zip"].to_java(:String)
@@ -60,7 +60,7 @@ class BagKit
       end
       
       self.task = self.class.base_task + ['create', bag_path] + bag_data
-      self.task.push "--version",                  @option1.selected_item  if @option1.selected_index > 0
+      self.task.push "--version",                  @option1.selected_item
       self.task.push "--payloadmanifestalgorithm", @option2.selected_item
       self.task.push "--tagmanifestalgorithm",     @option3.selected_item
       self.task.push "--writer",                   @option4.selected_item

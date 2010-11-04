@@ -10,7 +10,7 @@ class BagKit
     def initialize(*args)
       self.auto_close = false
       
-      @option1 = JComboBox.new ["", "0.93", "0.94", "0.95", "0.96"].to_java(:String)
+      @option1 = JComboBox.new ["0.96", "0.95", "0.94", "0.93"].to_java(:String)
       @option2 = JCheckBox.new "Ignore missing bag-it.txt"
       @option3 = JCheckBox.new "Ignore additional folders"
       super(*args) do |c, i|
