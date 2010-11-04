@@ -58,7 +58,7 @@ class BagKit
     def action_bag(type, event)
       self.task = files.map do |folder|
         t = self.class.base_task + ['baginplace', Context.local_path(folder.absolute_path)]
-        t.push "--version",                  @option1.selected_item  if @option1.selected_index > 0
+        t.push "--version",                  @option1.selected_item
         t.push "--payloadmanifestalgorithm", @option2.selected_item
         t.push "--tagmanifestalgorithm",     @option3.selected_item
         t.push "--retainbasedir" if @option4.is_selected

@@ -55,9 +55,9 @@ class BagKit
     def action_bag(type, event)
       self.task = files.map do |folder|
         t = self.class.base_task + ['verifyvalid', Context.local_path(folder.absolute_path)]
-        t.push "--version", @option1.selected_item  if @option1.selected_index > 0
-        t.push "--missingbagittolerant"             if @option2.is_selected
-        t.push "--additionaldirectorytolerant"      if @option3.is_selected
+        t.push "--version", @option1.selected_item
+        t.push "--missingbagittolerant"        if @option2.is_selected
+        t.push "--additionaldirectorytolerant" if @option3.is_selected
         t
       end
       execute
