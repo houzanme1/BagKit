@@ -1,11 +1,11 @@
 BAGIT LIBRARY (BIL)
-Version 3.1
+Version 3.6
 BagIt Version 0.96
 
 DESCRIPTION:
 The BAGIT LIBRARY is a software library intended to support the creation, 
 manipulation, and validation of bags.  It is version aware.  The earliest
-supported version is 0.95.
+supported version is 0.93.
 
 REQUIREMENTS:
 Java 6
@@ -38,7 +38,47 @@ that will cause problems with this project.  To work around the problem, in Ecli
 the project's Properties, then Maven and unselect "Skip Maven compiler plugin when processing
 resources".
 
+FILENAMES WITH BACKSLASHES (\):
+The BagIt specification requires that the only valid path separator is the forward slash /. Thus, a
+backslash (\) in a file name is completely legal.  However, due to a shortcoming in Commons VFS
+backslashes are supported by BIL.  Given platform compatability issues, this is not necessarily
+a bad thing.
+
 RELEASE NOTES:
+Changes in 3.6:
+1. Fixed bug with HolePunchers handling of filepaths with spaces.
+2. Fixed bug which caused the FileSystem Writer to delete empty directories.
+3. Added option for FileSystem Writer to ignore nfs temp files since they can't be deleted.
+
+Changes in 3.5:
+1. Fixed bug with support for specifying a manifest delimeter.
+2. Added missing files to source zip.
+3. Added results log and output for retrieve and fill holey operations.
+4. Fixed bug with handling of holey bags missing fetch.txt.
+5. Set FTP data transfer sockets timeout.
+
+Changes in 3.4:
+1. Fixed critical bug that disallowed payload files to have tag manifest names.
+2. Changed logging so each invocation produces a unique log file.
+3. Added a new results log written to working directory for failed verification commandline operations.
+4. Reduced output to System.out when invoking commandline.
+5. Added support for reporting BIL version number.
+
+Changes in 3.3:
+1. Added support for HTTPS, including lax certificate handling via the --relaxssl option.
+2. Fixed problems with the console authenticator.
+3. Changed socket timeout from infinity to 20 seconds for http fetches.
+4. Made adding data to payload progress monitorable and cancellable (AddFilesToPayloadOperation)
+5. Made whitespace used in creating manifests configurable.
+6. Smarter handling of relative paths in manifests. 
+
+Changes in 3.2:
+1. Fixed handling of bag-info.txt with colons in the value.
+2. Added Update Completer, which updates the manifests and bag-info.txt for a modified bag.
+3. Added support for retrieving a bag exposed by a web server without first having a local
+	holey bag.
+4. Added support for BIL versions 0.93 and 0.94.
+5. Changed default number of spaces in manifests to 2.
 
 Changes in 3.1:
 1. Updates to bag.bat.
