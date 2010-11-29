@@ -1,5 +1,5 @@
 BAGIT LIBRARY (BIL)
-Version 3.6
+Version 3.7.1
 BagIt Version 0.96
 
 DESCRIPTION:
@@ -45,6 +45,15 @@ backslashes are supported by BIL.  Given platform compatability issues, this is 
 a bad thing.
 
 RELEASE NOTES:
+Changes in 3.7.1:
+1. Fixed defect in the writing of repeated fields in bag-info.txt.
+2. Fixed defect in adding a list of values to bag-info.txt.
+
+Changes in 3.7:
+1. Added option to limit added, updated, and deleted files in UpdateCompleter.
+2. Added support for repeating fields in bag-info.txt.  The existing Map interface was extended,
+    not changed.
+
 Changes in 3.6:
 1. Fixed bug with HolePunchers handling of filepaths with spaces.
 2. Fixed bug which caused the FileSystem Writer to delete empty directories.
